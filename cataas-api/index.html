@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cataas Playground</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<main class="app">
+		<section class="card">
+			<header class="header">
+				<div class="header-top">
+					<h1>Cataas Playground</h1>
+					<button id="themeToggle" class="btn theme-toggle" aria-label="Toggle theme">🌙</button>
+				</div>
+				<p class="sub">Just pick a tag or go fully random. One click, instant cat.</p>
+			</header>
+
+			<div class="controls">
+				<div class="row">
+					<label class="field">
+						<span class="label">Tag</span>
+						<select id="tagSelect">
+							<option value="">Any</option>
+						</select>
+					</label>
+
+					<button id="randomBtn" class="btn btn-secondary">Random Tag</button>
+				</div>
+
+				<div class="row actions">
+					<button id="copyBtn" class="btn">Copy Link</button>
+					<button id="downloadBtn" class="btn">Download</button>
+				</div>
+			</div>
+
+			<p id="status" class="status" aria-live="polite"></p>
+
+			<div class="preview" id="previewBox">
+				<img id="preview" alt="Cat preview" />
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer-credit">
+		<p>Cat images powered by <a href="https://cataas.com/" target="_blank" rel="noopener">Cataas API</a>. Project by Daniela.</p>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>

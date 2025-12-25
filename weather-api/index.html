@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  </head>
+<body>
+  <main class="app">
+    <div class="aurora" aria-hidden="true"></div>
+    <section class="card">
+      <header class="header">
+        <div class="header-top">
+          <h1>Weather</h1>
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+        <p class="sub">Search any city or use your location to get the current weather and 5-day outlook.</p>
+      </header>
+
+      <div class="input-row">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter a city or province name"
+          autocomplete="off"
+        />
+        <button id="searchBtn" class="btn-primary">Search</button>
+        <button id="geoBtn" class="btn-ghost" title="Use my current location">📍</button>
+      </div>
+
+      <!-- Location choices -->
+      <select id="placeSelect" class="hidden" aria-label="Choose location"></select>
+
+      <!-- Status + Error -->
+      <p id="status" class="status" aria-live="polite"></p>
+      <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+      <!-- Meta info -->
+      <div id="metaRow" class="meta-row hidden">
+        <div class="chip"><span class="chip-label">Sunrise</span><span id="sunrise" class="chip-value">--:--</span></div>
+        <div class="chip"><span class="chip-label">Sunset</span><span id="sunset" class="chip-value">--:--</span></div>
+        <div class="chip"><span class="chip-label">Updated</span><span id="updatedAt" class="chip-value">--:--</span></div>
+      </div>
+
+      <!-- Current Weather -->
+      <div id="weatherResult" class="weather hidden">
+        <div class="weather-main">
+          <div class="info-block">
+            <h2 id="cityName"></h2>
+            <p id="country" class="muted"></p>
+            <p id="description" class="description"></p>
+          </div>
+
+          <div class="temp-block">
+            <img id="weatherIcon" class="temp-icon" alt="" />
+            <div class="temp-wrap">
+              <span id="temp" class="temp"></span>
+              <span class="temp-unit">°C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-extra">
+          <div class="weather-item">
+            <span class="label">Feels like</span>
+            <span><span id="feelsLike"></span> °C</span>
+          </div>
+          <div class="weather-item">
+            <span class="label">Humidity</span>
+            <span><span id="humidity"></span> %</span>
+          </div>
+          <div class="weather-item">
+            <span class="label">Wind</span>
+            <span><span id="wind"></span> m/s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-Day Forecast -->
+      <div id="forecastBox" class="forecast hidden">
+        <h3 class="forecast-title">5-Day Forecast</h3>
+        <div id="forecastGrid" class="forecast-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

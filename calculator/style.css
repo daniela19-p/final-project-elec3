@@ -1,0 +1,147 @@
+/* Calculator - Purple Glass UI */
+:root {
+  --purple-50: #f5f3ff;
+  --purple-100: #ede9fe;
+  --purple-200: #ddd6fe;
+  --purple-300: #c4b5fd;
+  --purple-400: #a78bfa;
+  --purple-500: #8b5cf6;
+  --purple-600: #7c3aed;
+  --purple-700: #6d28d9;
+  --purple-800: #5b21b6;
+  --purple-900: #4c1d95;
+
+  --bg: radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(1000px 900px at 80% 90%, rgba(139,92,246,.25), transparent 55%),
+        linear-gradient(180deg, #0f0a1f, #120a24 60%, #0b0818);
+  --text: #f7f6ff;
+  --muted: #c9c4ff;
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.14);
+  --key-bg: rgba(255,255,255,0.08);
+  --key-hover: rgba(255,255,255,0.16);
+  --op-bg: linear-gradient(135deg, var(--purple-600), var(--purple-500));
+  --op-hover: linear-gradient(135deg, var(--purple-700), var(--purple-600));
+  --eq-bg: linear-gradient(135deg, #ff6ea8, #ff8bd1);
+  --eq-hover: linear-gradient(135deg, #ff5c9a, #ff79c8);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  background-attachment: fixed;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.card {
+  width: min(420px, 92vw);
+  backdrop-filter: blur(14px) saturate(120%);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0 0 6px 0;
+  font-size: 22px;
+  letter-spacing: .4px;
+}
+.sub {
+  margin: 0 0 14px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.display {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 6px 0 18px 0;
+  min-height: 86px;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+}
+.expression {
+  min-height: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .3px;
+}
+.result {
+  font-variant-numeric: tabular-nums; 
+  font-size: 36px;
+  line-height: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  appearance: none;
+  border: 0;
+  padding: 14px 0;
+  border-radius: 12px;
+  background: var(--key-bg);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25), inset 0 -2px 0 rgba(255,255,255,.04);
+  transition: transform .04s ease, background .2s ease, filter .2s ease;
+}
+.key:hover { background: var(--key-hover); }
+.key:active { transform: translateY(1px) scale(.995); filter: brightness(.98); }
+
+.key--wide { grid-column: span 2; }
+
+.key--op {
+  background: var(--op-bg);
+}
+.key--op:hover { background: var(--op-hover); }
+
+.key--fn {
+  background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(139,92,246,.18));
+  color: #efe9ff;
+}
+.key--fn:hover { filter: brightness(1.06); }
+
+.key--eq {
+  background: var(--eq-bg);
+  color: #230514;
+}
+.key--eq:hover { background: var(--eq-hover); }
+
+/* Subtle animated accent */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(140deg, rgba(124,58,237,.6), rgba(139,92,246,.0) 30%, rgba(255,132,188,.35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 360px) {
+  .result { font-size: 30px; }
+}

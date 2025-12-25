@@ -1,0 +1,123 @@
+/* Cataas Playground - Purple Theme */
+:root[data-theme="dark"] {
+	--bg: radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.18), transparent 60%),
+				radial-gradient(1000px 900px at 80% 90%, rgba(139,92,246,.18), transparent 55%),
+				linear-gradient(180deg, #0f0a1f, #120a24 60%, #0b0818);
+	--text: #f6f6ff;
+	--muted: #cbc6ff;
+	--card-bg: rgba(255,255,255,0.08);
+	--card-border: rgba(255,255,255,0.14);
+	--input-bg: rgba(255,255,255,0.08);
+	--input-border: rgba(255,255,255,0.14);
+	--option-bg: #18122d;
+	--option-active: #251c42;
+	--option-text: #f6f6ff;
+	--primary: linear-gradient(135deg, #7c3aed, #8b5cf6);
+	--primary-hover: linear-gradient(135deg, #6d28d9, #7c3aed);
+}
+
+:root[data-theme="light"] {
+	--bg: radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.15), transparent 60%),
+				radial-gradient(1000px 900px at 80% 90%, rgba(139,92,246,.18), transparent 55%),
+				linear-gradient(180deg, #faf8ff, #f6f3ff 60%, #f8f5ff);
+	--text: #1a1230;
+	--muted: #5b4a92;
+	--card-bg: rgba(255,255,255,0.85);
+	--card-border: rgba(124,58,237,.25);
+	--input-bg: #fff;
+	--input-border: rgba(124,58,237,.25);
+	--option-bg: #ffffff;
+	--option-active: #f0eaff;
+	--option-text: #1a1230;
+	--primary: linear-gradient(135deg, #7c3aed, #8b5cf6);
+	--primary-hover: linear-gradient(135deg, #6d28d9, #7c3aed);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+	background: var(--bg);
+	color: var(--text);
+}
+
+.app { min-height: 100vh; display: grid; place-items: center; padding: 32px 20px; }
+
+.card {
+	width: min(980px, 95vw);
+	background: var(--card-bg);
+	border: 1px solid var(--card-border);
+	border-radius: 18px;
+	padding: 20px;
+	box-shadow: 0 16px 40px rgba(0,0,0,.3);
+}
+
+.header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.header-top h1 { margin: 0; font-size: clamp(20px, 3vw, 26px); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+.controls { margin-top: 14px; display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+.row.actions { grid-template-columns: repeat(2, auto); justify-content: start; }
+
+.field { display: grid; gap: 6px; }
+.label { color: var(--muted); font-size: 12px; }
+
+select {
+	width: 100%; appearance: none;
+	background: var(--input-bg);
+	border: 1px solid var(--input-border);
+		color: var(--option-text);
+	border-radius: 12px;
+	padding: 10px 12px;
+}
+select option { background: var(--option-bg); color: var(--option-text); }
+select option:checked,
+select option:hover { background: var(--option-active); color: var(--option-text); }
+
+.btn { appearance: none; border: 1px solid var(--card-border); background: var(--input-bg); color: var(--text); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 700; }
+.btn:hover { filter: brightness(1.05); }
+.btn-primary { background: var(--primary); color: #0f0a1b; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(139,92,246,.15)); }
+.theme-toggle { min-width: 46px; }
+
+.status { min-height: 18px; margin: 8px 0; color: var(--muted); font-size: 13px; }
+
+.preview { margin-top: 12px; border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,.04); display: grid; place-items: center; min-height: 260px; }
+.preview img { max-width: 100%; display: block; width: 100%; height: auto; }
+
+@media (max-width: 760px) {
+	.row { grid-template-columns: 1fr; }
+	.row.actions { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Footer Credit Styling */
+.footer-credit {
+	width: 100%;
+	text-align: center;
+	padding: 18px 0 10px 0;
+	background: none;
+	color: var(--muted);
+	font-size: 15px;
+	letter-spacing: 0.02em;
+	margin-top: 30px;
+	transition: color 0.2s;
+}
+.footer-credit a {
+	color: #8b5cf6;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s, text-shadow 0.2s;
+	text-shadow: 0 2px 8px rgba(124,58,237,0.12);
+}
+.footer-credit a:hover {
+	color: #7c3aed;
+	text-shadow: 0 2px 12px rgba(124,58,237,0.22);
+	text-decoration: underline;
+}
+.footer-credit p {
+	margin: 0;
+	padding: 0;
+}
